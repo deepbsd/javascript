@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by deepbsd (http://jsbin.com/dinuhiv/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Skillcrush 102 - Select an Element with jQuery" />
+  <title>Select an Element with jQuery</title>
+  
+  <link href="http://fonts.googleapis.com/css?family=Codystar" rel="stylesheet" type="text/css">
+<style id="jsbin-css">
+body {
+  background-color: #E0FFFF;
+}
+ 
+h1#my-header {
+  color: #9E9E9E;
+  display: none;
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Codystar';
+  font-size: 60px;
+}
+</style>
+</head>
+<body>
+  <button id="my-button">Click me!</button>
+ 
+  <h1 id="my-header">Good job!</h1>
+  
+  
+  
+  
+  <!-- JQuery Goes here!  (My comment, btw...) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script id="jsbin-javascript">
+$(document).ready(function() {
+  // attach a click event to the button
+  $('#my-button').click(function() {
+    // set the animation to start after one second
+    setTimeout(function() {
+      // fade in the header slowly
+      $('#my-header').fadeIn('slow', function() {
+        // when the header is done fading in, fade out slowly
+        $('#my-header').fadeOut('slow', function() {
+          // when the header is done fading out,
+          // fade it in quickly and change its color
+          $('#my-header').fadeIn('fast').css('color', '#B0171F');
+        });
+      });
+    }, 1000);
+  });
+});
+</script>
+</body>
+</html>

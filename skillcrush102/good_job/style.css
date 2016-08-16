@@ -1,0 +1,12 @@
+body {
+  background-color: #E0FFFF;
+}
+
+h1#my-header {
+  color: #9E9E9E;
+  display: none;
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Codystar';
+  font-size: 60px;
+}

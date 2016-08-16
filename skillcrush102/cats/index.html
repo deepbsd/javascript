@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Skillcrush 102 - Fun With JavaScript Events" />
+
+  <title>Fun With JavaScript Events</title>
+
+</head>
+<body>
+  <!-- HTML goes here -->
+  <button id="b_black">Black Cat</button>
+  <button id="b_cow">Cow Cat</button>
+  <button id="b_orange">Orange Cat</button>
+  <button id="lights">Light Switch</button>
+  <div id='cats'>
+    <img id="black" style="display:block" src="http://f.cl.ly/items/1O3x112n090X1d3H1A0g/blackCat.png" id="black-cat" />
+    <img id="cow" style="display:block" src="http://f.cl.ly/items/0c1R0n0K180G0q3z2b0m/cowCat.png" id="cow-cat" />
+    <img id="orange" style="display:block" src="http://f.cl.ly/items/3E2v0u0S0M3F0e3h2c2O/orangeCat.png" id="orange-cat" />
+  </div>
+
+<!--
+Tried moving script inside the document and it worked just fine!  It loads after rest of document.
+So far I haven't learned how to execute an external script on load...
+
+The Catstuff document is what I created on JSBIN.  It's great!
+-->
+<script id="jsbin-javascript">
+
+var button_black = document.getElementById("b_black");
+var button_cow = document.getElementById("b_cow");
+var button_orange = document.getElementById("b_orange");
+
+var black = document.getElementById("black");
+var cow = document.getElementById("cow");
+var orange = document.getElementById("orange");
+
+var button_lights = document.getElementById("lights");
+
+
+button_black.addEventListener("click", function() {
+  // do something when the button is clicked
+  if (black.style.display == "block") {
+    black.style.display = "none";
+  }else{
+    black.style.display = "block";
+  }
+});
+
+
+button_cow.addEventListener("click", function() {
+  // do something when the button is clicked
+  if (cow.style.display == "block") {
+    cow.style.display = "none";
+  }else{
+    cow.style.display = "block";
+  }
+});
+
+
+button_orange.addEventListener("click", function() {
+  // do something when the button is clicked
+  if (orange.style.display == "block") {
+    orange.style.display = "none";
+  }else{
+    orange.style.display = "block";
+  }
+});
+
+button_lights.addEventListener("click", function() {
+  // when the button is clicked, then...
+  if (document.body.style.background == "white") {
+    document.body.style.background = "black";
+  }else{
+    document.body.style.background = "white";
+  }
+});
+
+</script>
+
+</body>
+</html>

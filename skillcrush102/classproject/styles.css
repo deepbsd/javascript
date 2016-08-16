@@ -1,0 +1,62 @@
+/* write your CSS here */
+#modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+#modal-box {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 5px solid #454545;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 480px;
+}
+
+#modal-show {
+  background: purple;
+  border-radius: 5px;
+  border: 4px outset purple;
+  color: white;
+  font-size: 2em;
+  margin: 0.5em;
+}
+
+#modal-hide {
+  background: white;
+  border-radius: 15px;
+  color: #454545;
+  display: block;
+  float: right;
+  font-family: monospace;
+  font-size: 20px;
+  margin-right: -17px;
+  position: relative;
+  top: -18px;
+  width: 30px;
+}
+#extra-bio {
+display:none;
+}
+
+
+/*
+figure {
+float: right;
+}
+
+figcaption{
+  text-align: center;
+}
+
+img {
+  height: 300px;
+}
+*/

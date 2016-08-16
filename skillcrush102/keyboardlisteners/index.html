@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by deepbsd (http://jsbin.com/wudove/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Skillcrush 102 - Event Sandbox" />
+  <title>Event Sandbox</title>
+</head>
+<body>
+  <h1 id="title">Event Sandbox</h1>
+  <p id="instructions">Play with all the events!</p>
+
+  <label id="question" for="question">What is two plus two?</label>
+  <input id="answer" name="answer" type="number">
+
+  <ul>
+    <li><code>click</code></li>
+    <li><code>keyup</code></li>
+    <li><code>DOMContentLoaded</code></li>
+    <li><code>scroll</code></li>
+    <li><code>blur</code></li>
+  </ul>
+  
+  <hr>
+  <h2>Press a key, any key...</h2>
+  <p id="keyPress">
+  </p>
+
+  <hr>
+
+  <h2>Notifications</h2>
+  <ol id="notifications">
+  </ol>
+ <script id="jsbin-javascript">
+// A helper function to log notification messages
+var notify = function(message) {
+  var notifications = document.getElementById("notifications");
+  var newNotification  = document.createElement("li");
+  
+  
+  newNotification.innerText = message;
+  
+  notifications.appendChild(newNotification);
+};
+
+document.addEventListener("keydown", function(event) {
+  var pressAKey = document.getElementById("keyPress");
+  pressAKey.innerText = "You pressed key number "+event.which+" on the keyboard.";
+});
+
+document.addEventListener("click", function(evt) {
+  // Notify when an element has been clicked on
+  var targetElem = evt.target.tagName;
+  notify("Clicked on a " + String(targetElem) + " element");
+});
+
+document.addEventListener("keyup", function(evt) {
+  // Notify when the "G" key is pressed
+  if (evt.keyCode === 32) {
+    notify("Pressed the Spacebar key");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function(evt) {
+  // Notify when the DOM has been loaded
+  notify("The DOM has been loaded.");
+});
+
+document.addEventListener("scroll", function(evt) {
+  // Notify when a scroll event happens
+  notify("Scrolled");
+});
+
+// Get the answer input
+var answerInput = document.getElementById("answer");
+
+answerInput.addEventListener("blur", function(evt) {
+  var answerNumber = parseInt(answerInput.value);
+
+  // Check if the answer is correct
+  if (answerNumber === 4) {
+    notify("Correct answer! :)");
+  }
+  else {
+    notify("Incorrect answer. :(");
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by deepbsd (http://jsbin.com/nivige/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Skillcrush 102 - CowSay What?" />
+  <title>CowSay What?</title>
+</head>
+<body>
+  <h1>CowSay What?</h1>
+
+  <button id="cowsay-run">Say it, cow!</button>
+
+  <pre>
+-------------------------------------------------------
+<span id="cowsay-output"></span>
+-------------------------------------------------------
+      \   ^__^
+       \  (oo)\_______
+          (__)\       )\/\
+              ||----w |
+              ||     ||
+  </pre>
+<script id="jsbin-javascript">
+/*
+ * Get the elements to use in this script.
+ */
+var cowsayRun = document.getElementById("cowsay-run");
+var cowsayOutput = document.getElementById("cowsay-output");
+
+/*
+ * When the user clicks the button, change the text that the cow says.
+ *
+ * Based on the format of the input, the cow will say different things:
+ * - If the input is a question, the cow will respond with "moo don't know."
+ * - If the input is an exclamation, the cow will respond with "MOO MOO MOO!"
+ * - Otherwise, the cow will respond with the input surrounded by "moo..."
+ */
+cowsayRun.addEventListener("click", function() {
+  // ask the user for input text
+  var inputText = prompt("What should the cow say?");
+
+  var lastChar = inputText.charAt(inputText.length -1);
+  
+  // WRITE YOUR CODE HERE
+  if (lastChar === '?'){
+    inputText = "Good Question: "+inputText+" Moo don't know.";
+  }else if(lastChar === '!'){
+    inputText = "Why so excited? "+inputText+" ??? Moo don't care.";
+  }else{
+    inputText = "mooooo... "+inputText+" moooo....";
+  }
+  
+  cowsayOutput.innerText = inputText;
+  
+});
+</script>
+</body>
+</html>
