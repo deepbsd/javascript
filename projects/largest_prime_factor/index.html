@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!-- <link rel="stylesheet" href="styles.css">  -->
+<script src="script.js"></script>
+
+<title>Project Euler: Largest Prime Factor</title>
+</head>
+<body>
+
+<h1>Project Euler (problem 3): Largest Prime Factor</h1>
+
+<p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
+
+<p>What is the largest prime factor of the number 600851475143 ?</p>
+
+
+<h4>Solution: growning the factor pairs!</h4>
+
+<p> Here's what my solution would look like in Ruby: <br>
+<style>
+pre {
+ background: lightblue;
+ width: 300px;
+ font-family: "Roboto Slab", serif;
+}
+</style>
+<pre> 
+number = 600851475143
+i = 2 
+
+while i * i < number do
+  while number % i == 0 do
+    number = number / i 
+  end 
+  i = i + 1 
+end
+
+puts number.to_i
+
+</pre>
+</p>
+<p> Here is the series: </p>
+
+<ul id="output">
+
+
+</ul>
+
+
+
+
+</body>
+</html>
