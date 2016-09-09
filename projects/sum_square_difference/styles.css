@@ -1,0 +1,10 @@
+pre {
+  background-color: powderblue;
+  font-family: "Roboto Slab", serif;
+  width: 600px;
+}
+
+span {
+  color: red;
+  font-size: 20px;
+}

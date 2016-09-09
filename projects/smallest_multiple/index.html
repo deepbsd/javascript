@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- External stuff -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+
+
+
+<title>Project Euler, 5: Smallest Multiple</title>
+
+</head>
+<body>
+
+<h1>Project Euler, Problem 5: Smallest Multiple</h1>
+
+<h4>2520 is the msallest number that can be divided by each of the numbers from
+1 to 10 without any remainder.  What is the smallest positive number that is
+evenly divisible by all of the numbers from 1 to 20?</h4>
+
+<p>
+The answer is: <span id="output"></span>.
+</p>
+
+<h4>Here's the code:</h4>
+<pre>
+
+// Least Common Multiple problem...
+$(document).ready( function() {
+
+	function leastCM(min, max) {
+	  function range(min, max) {
+	    var arr = [];
+	    for (var i = min; i <= max; i++) {
+	      arr.push(i);
+	    }
+	    return arr;
+	  }
+
+	  function gcd(a, b) {
+	    return !b ? a : gcd(b, a % b);
+	  }
+
+	  function lcm(a, b) {
+	    return (a * b) / gcd(a, b);
+	  }
+
+	  var multiple = min;
+	  range(min, max).forEach(function(n) {
+	    multiple = lcm(multiple, n);
+	  });
+
+	  return multiple;
+	}
+
+	// Here is where we call the function with 1 and 20...
+	var output = leastCM(1, 20);
+
+	$("#output").text("The answer is "+output+".");
+
+});
+
+
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- External stuff -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+
+
+
+<title>Project Euler, 6: Sum Square Difference</title>
+
+</head>
+<body>
+
+<h1>Project Euler, Problem 6: Sum Square Difference</h1>
+
+<h4>The sum of squares of the first ten natural numbers is 
+1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup>
+... 10<sup>2</sup> = 385.  
+<br>The square of the sum of the first ten natural numbers is 
+(1 + 2 + ... +10)<sup>2</sup> = 55<sup>2</sup> = 3025.  
+<br>Hence the difference between the sum of the
+squares of the first ten natural numbers and the square of the sum is 
+3025 - 385 = 2640. <br> 
+Find the difference between the sum of the squares of the first one
+hundred natural numbers and the square of the sum.</h4>
+
+<p>
+The answer is: <span id="output"></span>.
+</p>
+
+<h4>Here's the code:</h4>
+<pre>
+// Sum Square difference, Euler problem 6...
+$(document).ready( function() {
+
+  nums1 = [];   
+  i = 1;
+  while(nums1.push(i++) < 100 ) {}; //Array of first 100 numbers...
+  sum = 0;
+  nums1.forEach( function(n) { sum += n });
+  square_of_sum = sum * sum;
+
+  sum = 0;
+  nums1.forEach( function(n) { sum += n*n });
+  sum_of_squares = sum;
+
+  answer = square_of_sum - sum_of_squares;
+
+
+  $("#output").text(answer);
+
+});
+</pre>
+
+</body>
+</html>
