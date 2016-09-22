@@ -1,0 +1,13 @@
+#mycode {
+  background: #202020;
+  color: white;
+  border-radius: 15px;
+  width: 600px;
+  font-family: "Roboto Slab", serif;
+}
+
+#output {
+  font-size: 18pt;
+  color: red;
+}
+

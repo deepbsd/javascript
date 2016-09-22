@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- external stuff -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet    ">
+<link rel="stylesheet" href="style.css">
+<!-- <script src="script.js"> </script> -->
+<script src="script1.js"> </script>
+
+<!-- Need to include an external library for big numbers -->
+<script src="http://peterolson.github.com/BigInteger.js/BigInteger.min.js"></script>
+
+<!-- Document title -->
+<title>Euler Project, Problem 10:  Summation of Primes</title>
+
+
+
+</head>
+<body>
+
+<h1>Euler Project, Problem 10: Summation of Primes</h1>
+
+<h4>The sum of primes below 10 is 2 + 3 + 5 + 7 = 17.</h4>
+
+<h4>Find the sum of all the primes below two million.</h4>
+
+<aside><p>This will take too long.  Need to find another algorithm for this!  It
+takes me about 35 seconds to find an answer for this currently!</p></aside>
+<h5>This output is wrong! It's a placeholder value until I can implement a
+better solution!</h5>
+<p id="output">
+
+</p>
+
+
+<p>Here's the code I used to get the answer (originally at least; now I'm using
+someone else's Sieve of Erasothenes code from StackOverflow!): </p>
+<code><pre id="mycode">
+
+// Find the summation of primes (Euler Problem 10)
+$(document).ready( function() {
+
+    function isPrime(n) {
+      if (n === 1) { return false;}
+      if (n === 2) { return true; }
+      var sqrt_n = Math.round(Math.floor(Math.sqrt(n)));
+      for (var i=2; i<=sqrt_n + 1; n++) {
+        if (n % i === 0) { return false; }
+	return true;
+      }
+    }
+
+    var sum = 2;
+    var limit = 2e+6;
+
+    for (var i=3; i<=limit; i+=2) {
+      if (isPrime(i)===true) { sum+=i; }
+    }
+
+    console.log(sum);
+
+    $("#output").text("Sum is " + sum );
+
+});
+
+</pre></code>
+
+
+</body>
+</html>
