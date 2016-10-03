@@ -1,0 +1,21 @@
+img.center {
+  display: block;
+  margin-left: 50px;
+  margin-right: auto;
+}
+
+.window {
+  position: relative;
+}
+
+#answer {
+  color: white;
+  top: 139px;
+  left: 138px;
+  width: 73px;
+  text-align: center;
+  font-size: 0.75em;
+  font-family: sans-serif;
+  font-weight: bold;
+  position: absolute;
+}

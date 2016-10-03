@@ -26,20 +26,22 @@
 
 <h4>Find the sum of all the primes below two million.</h4>
 
-<aside><p>This will take too long.  Need to find another algorithm for this!  It
-takes me about 35 seconds to find an answer for this currently!</p></aside>
-<h5>This output is wrong! It's a placeholder value until I can implement a
-better solution!</h5>
 <p id="output">
 
 </p>
 
 
 <p>Here's the code I used to get the answer (originally at least; now I'm using
-someone else's Sieve of Erasothenes code from StackOverflow!): </p>
+someone else's Sieve of Eratosthenes code from StackOverflow!): </p>
 <code><pre id="mycode">
 
-// Find the summation of primes (Euler Problem 10)
+/*
+  Find the summation of primes (Euler Problem 10)
+  This solution takes about 30sec to run.  I don't really
+  understand the Sieve of Eratosthenes so I could only copy one of the
+  solutions on Stack Overflow...  This solution works and it was mine.
+*/
+
 $(document).ready( function() {
 
     function isPrime(n) {
