@@ -108,7 +108,7 @@ $("#partyTimeButton").click( function() {
 
 });
 
-button.addEventListener("click", partyEvent);
+//button.addEventListener("click", partyEvent);
 
 // Now for the time selector buttons...
 var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
