@@ -62,6 +62,7 @@ function recipeFactory(rname, ringredients, rsteps) {
         recipeSteps.push(step);
       }
       // console.log("steps: "+'<li>'+recipeSteps+'</li>');
+
       return '<h2>To Make:</h2><ol>'+recipeSteps.join('')+'</ol>';
     }  // end of .stepsHtml() method
 
