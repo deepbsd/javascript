@@ -1,11 +1,11 @@
 
 $( function fizzBuzz() {
    
-   $('#number-chooser').submit( function(event) {
+   $('#number-chooser').submit( function(ev) {
      var numberIn = parseInt($('#number-choice').val());
-      
+      ev.preventDefault();
      if (!numberIn.isNaN) {
-      
+        $('.js-results').html('');
        for (var i=1; i <= numberIn; i++){
          if (i%3 === 0 && i%5 === 0){
            $('.js-results').append('<div class="fizz-buzz-item fizzbuzz"><span>FizzBuzz</span></p>');
