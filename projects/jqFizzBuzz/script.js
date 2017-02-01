@@ -5,13 +5,10 @@ $( function fizzBuzz() {
    
    $('#number-chooser').submit( function(ev) {
 
-
-
      var numberIn = parseInt($('#number-choice').val());
-      
-      ev.preventDefault(); 
-
+      ev.preventDefault();
      if (!numberIn.isNaN) {
+        $('.js-results').html('');
 
        for (var i=1; i <= numberIn; i++){
          if (i%3 === 0 && i%5 === 0){
