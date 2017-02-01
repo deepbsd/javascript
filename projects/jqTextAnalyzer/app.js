@@ -15,6 +15,8 @@ $( function textAnalyzer() {
 		var allWords = inText.split(' ');
 
 
+		//console.log(allWords);
+
 		// store the total word count
 		var wordCount = allWords.length;
 
@@ -31,6 +33,8 @@ $( function textAnalyzer() {
 			}
 			// delete this superfluous value at start of hash
 			delete wordDict[""];  
+
+			console.log(wordDict);
 
 			return Object.keys(wordDict).length;
 		}  // end of uniqueWordCount() function
