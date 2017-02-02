@@ -7,7 +7,11 @@
 	    	{id: 1, title: 'Apples', checked: true},
 	    	{id: 2, title: 'Bread', checked: false},
 	    	{id: 3, title: 'Oranges', checked: false},
-	    	{id: 4, title: 'Grapes', checked: false}
+	    	{id: 4, title: 'Grapes', checked: false},
+	    	{id: 5, title: 'Cherries', checked: true},
+	    	{id: 6, title: 'Soda', checked: false},
+	    	{id: 7, title: 'Coffee', checked: false},
+	    	{id: 8, title: 'Napkins', checked: false}
 	    ]
 	};
 
