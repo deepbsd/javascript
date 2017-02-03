@@ -31,12 +31,16 @@ before the 'end' variable gets assigned.  Or it gets a bogus number.
 	var addItem = function(state, item) {
 		var last = state.items.length;
 		console.log('length of items: '+state.items.length);
-		var end = state.items[last-1].id;
-		console.log(end+' is last id number');
-		var newItem = { id: end+1, title: item, checked: false };
-	    state.items.push(newItem);
-	    console.log('added '+newItem.title);
-	    renderList(state, shoppingListWrapper);
+		if (last) {
+			var end = state.items[last-1].id;
+		} else {
+			end = 0;
+		}
+			console.log(end+' is last id number');
+			var newItem = { id: end+1, title: item, checked: false };
+		    state.items.push(newItem);
+		    console.log('added '+newItem.title);
+		    renderList(state, shoppingListWrapper);
 	};
 
 	var deleteItem = function(ev) {
