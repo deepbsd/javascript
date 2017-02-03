@@ -39,7 +39,12 @@ before the 'end' variable gets assigned.  Or it gets a bogus number.
 			console.log(end+' is last id number');
 			var newItem = { id: end+1, title: item, checked: false };
 		    state.items.push(newItem);
+
 		    console.log('added '+newItem.title);
+
+		    // This clears the form field...
+		    $('#js-shopping-list-form').find("input[type=text], textarea").val("");
+		    
 		    renderList(state, shoppingListWrapper);
 	};
 
