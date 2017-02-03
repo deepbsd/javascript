@@ -45,17 +45,25 @@ before the 'end' variable gets assigned.  Or it gets a bogus number.
 
 		for (var n=0; n<state.items.length; n++) {
 			var item = state.items[n];
+			if (item.id === itemID) {
+				console.log("deleting "+item.title);
+				state.items.splice(item,1);
+				console.log(state.items);
+			}
 			//console.log('looking at item: '+state.items[n].title)
+			/*
 			try {
 				if (item.id === itemID) {
 					console.log("deleting "+item.title);
-					delete state.items[n];
+					state.items.splice(item, 1);
+					console.log(state.items);
 				}
 			}
 			catch (e) {
 					console.log(e);
 					continue;				
 			}
+			*/
 			//renderList(state, shoppingListWrapper);
 		}
 
