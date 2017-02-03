@@ -1,4 +1,13 @@
 ;(function () {
+
+/*
+Notes: Have to handle the following problems:
+1. throwing type errors when adding to a list that's been shortened.  
+Perhaps the problem is that it doesn't get the actual length of the object
+before the 'end' variable gets assigned.  Or it gets a bogus number.
+*/
+
+
 	// #######################
 	// Single state object
 	var state = {
@@ -21,11 +30,13 @@
 	// State modification functions
 	var addItem = function(state, item) {
 		var last = state.items.length;
+		console.log('length of items: '+state.items.length);
 		var end = state.items[last-1].id;
 		console.log(end+' is last id number');
 		var newItem = { id: end+1, title: item, checked: false };
 	    state.items.push(newItem);
-	    console.log(state.items);
+	    console.log('added '+newItem.title);
+	    renderList(state, shoppingListWrapper);
 	};
 
 	var deleteItem = function(ev) {
@@ -34,12 +45,18 @@
 
 		for (var n=0; n<state.items.length; n++) {
 			var item = state.items[n];
-			console.log('item is '+state.items[n])
-			if (item.id === itemID) {
-				console.log("deleting "+item.title);
-				delete state.items[n];
+			//console.log('looking at item: '+state.items[n].title)
+			try {
+				if (item.id === itemID) {
+					console.log("deleting "+item.title);
+					delete state.items[n];
+				}
 			}
-			renderList(state, shoppingListWrapper);
+			catch (e) {
+					console.log(e);
+					continue;				
+			}
+			//renderList(state, shoppingListWrapper);
 		}
 
 		renderList(state, shoppingListWrapper);
@@ -107,8 +124,8 @@
 
 	// ########################
 	// Event listeners
-	$('#js-shopping-list-form').submit(function(event) {
-	    event.preventDefault();
+	$('#js-shopping-list-form').submit(function(ev) {
+	    ev.preventDefault();
 	    addItem(state, $('#shopping-list-entry').val());
 
 	    renderList(state, $('.shopping-list'));
