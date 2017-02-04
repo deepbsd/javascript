@@ -2,9 +2,12 @@
 
 /*
 Notes: Have to handle the following problems:
-1. throwing type errors when adding to a list that's been shortened.  
+FIXED!  1. throwing type errors when adding to a list that's been shortened.  
 Perhaps the problem is that it doesn't get the actual length of the object
 before the 'end' variable gets assigned.  Or it gets a bogus number.
+2. Refactor code so it takes up less space...  (i.e. deleteItem())
+3. Finalize comments and leave only what contributes to readability and 
+maintainability.
 */
 
 
