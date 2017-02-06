@@ -129,11 +129,50 @@ var questions = [
 // ###################################################################
 var renderQuestion = function(question) {
 	var template = '';
+	template += '<h2 class="question-header">@questionNo</h2>';
+	template += '<h3 class="question-text">@questionText</h2>';
+	template += '<form class="answer-list">';
+	template += '<select>';
+	template += '<option class="answer-list-item" value="a">@option_a</option>';
+	template += '<option class="answer-list-item" value="b">@option_b</option>';
+	template += '<option class="answer-list-item" value="c">@option_c</option>';
+	template += '<option class="answer-list-item" value="d">@option_d</option>';
+	template += '<option class="answer-list-item" value="e">@option_e</option>';
+	template += '</select></form>';
+	template += '<div class="answer-feedback"><div class="proceed"><form class="proceed">';
+    template += '<input type="hidden" name="proceed"><button type="submit">Proceed</button></form></div>';
+    template += '<div class="right-wrong">@correctOrNot</div>';
+    template += '<div class="score">@numberRight of 10 correct.</div></div>  <!-- End of answer feedback -->';
+        
+         
+      
 
 }
+	/*
+      <h2 class="question-header">Question 1:</h2>
+      <h3 class="question-text">What is the first rule of the four (Jeff Cooper) firearms safety rules?</h3>
 
+      <form class="answer-list">
+        <select>
+          <option class="answer-list-item" value="a">Never point a gun at something you don't want to shoot.</option>
+          <option class="answer-list-item" value="b">Always run away from guns.</option>
+          <option class="answer-list-item" value="c">"All guns are always loaded."</option>
+          <option class="answer-list-item" value="d">Keep your finger off the trigger until you're ready to shoot.</option>
+          <option class="answer-list-item" value="e">Call your lawyer before you handle any gun.</option>
+        </select>
+      </form>
 
-
+      <div class="answer-feedback">
+      <div class="proceed">
+        <form class="proceed">
+          <input type="hidden" name="proceed">
+          <button type="submit">Proceed</button>
+        </form>
+      </div>
+        <div class="right-wrong">Correct!</div>
+        <div class="score">1 of 10 correct.</div> 
+      </div>  <!-- End of answer feedback -->
+	*/
 
 
 // ##############  Render Functions  ###################################
