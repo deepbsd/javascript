@@ -127,7 +127,10 @@ var questions = [
 
 // #############  State Modification Functions #######################
 // ###################################################################
+var renderQuestion = function(question) {
+	var template = '';
 
+}
 
 
 

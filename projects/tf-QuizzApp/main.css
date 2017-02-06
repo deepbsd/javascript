@@ -60,6 +60,11 @@ div.score {
   width: 40%;
 }
 
+div.proceed {
+  width: 40%;
+  float: right;
+}
+
 
 /*
 
