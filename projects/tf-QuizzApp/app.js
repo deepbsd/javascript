@@ -254,9 +254,10 @@
 
 		$('button.proceed_button').click( function(ev) {
 			ev.preventDefault();
-			var chosen = $('#answer-list option:selected').val();
+			proceedQuiz();			
+			var chosen = $('#answer-list').val();
 			scoreQuestion(chosen);
-			proceedQuiz();
+
 		});
 	}  // end of renderQuestion()
 
