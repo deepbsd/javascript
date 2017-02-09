@@ -154,12 +154,14 @@
 
 
 	function proceedQuiz() {
+
 		if (state.currentPage === 'question' && state.currentQuestion < state.questions.length - 1) {
-			console.log('proceed reached')
+			console.log('proceed reached, currentPage: ', state.currentPage);
 			state.currentQuestion++;
 			renderQuestion();
 		} else {
-			console.log('proceed else')
+						state.currentPage = 'final';
+			console.log('proceed else, currentPage: ', state.currentPage);
 			renderFinalPg();
 		}
 	}
@@ -167,6 +169,10 @@
 
 	// ##############  Render Functions  ###################################
 	// #####################################################################
+
+	function scoreQuestion(question) {    // this will be one of the questions objects
+		console.log(chosen);
+	}
 
 
 	function renderIntro() {
@@ -248,6 +254,8 @@
 
 		$('button.proceed_button').click( function(ev) {
 			ev.preventDefault();
+			var chosen = $('#answer-list option:selected').val();
+			scoreQuestion(chosen);
 			proceedQuiz();
 		});
 	}  // end of renderQuestion()
@@ -261,7 +269,7 @@
 			innerTemplate += '<option class="answer-list-item" value="text">'+answerText+'</option>';
 		}
 
-		return '<select>'+innerTemplate+'</select>';
+		return '<select id="answer-list">'+innerTemplate+'</select>';
 
 	}
 
