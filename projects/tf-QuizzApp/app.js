@@ -20,7 +20,7 @@ var state = {
 			  {text: 'C.  "All guns are always loaded."', correct: true},
 			  {text: "D.  Keep your finger off the trigger until you're ready to destroy."},
 			  {text: "E.  Call your lawyer before you handle any gun."},
-		  ],
+		   ],
 		  correctly_answered: false
 		},
 
@@ -210,9 +210,10 @@ function renderQuestion(state) {
 		template += '<form class="answer-list">';
 		template += '<select>';
 
-		for (var option in state.questions.options){
-			optionText = option.text;
-			template += '<option class="answer-list-item" value="a">'+optionText+'</option>';
+		for (var i=0; i < 5; i++){
+
+			optionText = state.questions[questionNo-1].options[i].text;
+			template += '<option class="answer-list-item" value="text">'+optionText+'</option>';
 		}
 
 		template += '</select></form>';
@@ -239,8 +240,8 @@ function renderQuestion(state) {
 // Do this when we load the page
 renderIntro();
 
-$('#js-quizzapp-start-form').submit(renderQuestion(state));
-$('.proceed_button').click(renderQuestion());
+//$('#js-quizzapp-start-form').submit(renderQuestion(state));
+//$('.proceed_button').click(renderQuestion(state));
 
 
 
