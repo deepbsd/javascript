@@ -160,7 +160,7 @@
 			state.currentQuestion++;
 			renderQuestion();
 		} else {
-						state.currentPage = 'final';
+			state.currentPage = 'final';
 			console.log('proceed else, currentPage: ', state.currentPage);
 			renderFinalPg();
 		}
@@ -171,7 +171,7 @@
 	// #####################################################################
 
 	function scoreQuestion(question) {    // this will be one of the questions objects
-		console.log(chosen);
+		console.log(question);
 	}
 
 
@@ -218,44 +218,20 @@
 	    // template += '<div class="score">@total-right-answers of @total-questions are correct.</div>';
 	    template += '</div>  <!-- End of answer feedback -->';
 
-	    // Data definition
-		// var questionNo = state.currentQuestion;
-		// var questionText = state.questions[questionNo-1].question;
-		// var correctOrNot = renderRightWrong(state, questionNo);
-		// var numberRight = state.scores.right.length;
 
 		// Response processing (template + data)
 		var results = template
 			.replace('@question-number', state.currentQuestion)
 			.replace('@question', state.questions[state.currentQuestion-1].question)
 			.replace('@answer-options', renderQuestionAnswerOptions(state.questions[state.currentQuestion-1].options));
-
-
-		// var template = '';
-		// template += '<h2 class="question-header">'+questionNo+'</h2>';
-		// template += '<h3 class="question-text">'+questionText+'</h2>';
-		// template += '<form class="answer-list">';
-		// template += '<select>';
-
-		// for (var i=0; i < 5; i++){
-
-		// 	optionText = state.questions[questionNo-1].options[i].text;
-		// 	template += '<option class="answer-list-item" value="text">'+optionText+'</option>';
-		// }
-
-		// template += '</select></form>';
-		// template += '<div class="answer-feedback"><div class="proceed"><form id="proceed">';
-	 //    template += '<input type="hidden" name="proceed"><button class="proceed_button" type="submit">Proceed</button></form></div>';
-	 //    template += '<div class="right-wrong">'+correctOrNot+'</div>';
-	 //    template += '<div class="score">'+numberRight+' of 10 correct.</div></div>  <!-- End of answer feedback -->';
-	    
+  
 		$('.quiz-container').html(results);
 
 
 		$('button.proceed_button').click( function(ev) {
 			ev.preventDefault();
 			proceedQuiz();			
-			var chosen = $('#answer-list').val();
+			var chosen = $('#answer-list option:selected').val();
 			scoreQuestion(chosen);
 
 		});
