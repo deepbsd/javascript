@@ -5,8 +5,8 @@
 	// ###########  Single-State Data Object ###############
 	// #####################################################
 	var state = {
-		currentQuestion:  undefined, //'start_page','question 1 etc','final'
-
+		currentPage: 'start', // possible values: 'start','question', 'final'
+		currentQuestion: 0,
 		scores: {
 			right: [],
 			wrong: []
@@ -147,32 +147,23 @@
 
 
 
+
+
 	// #############  State Modification Functions #######################
 	// ###################################################################
 
-	function renderQuestionNo(state){
-		if (state.currentQuestion === undefined) {
-			state.currentQuestion = 1;
-		} else if ((state.currentQuestion >= 1) && (state.currentQuestion <= 10)) {
-			state.currentQuestion += 1;
-		} else {
-			state.currentQuestion = 'final';
-		}  // end of if statement
-		return state.currentQuestion;
-	}  // end of renderQuestionNo()
 
-
-	function renderRightWrong(state, value) {
-		var correctOrNot = '';
-		if (state.questions[value].correct) {
-			state.scores.right.push(value);
-			correctOrNot = 'Correct';
+	function proceedQuiz() {
+		if (state.currentPage === 'question' && state.currentQuestion < state.questions.length - 1) {
+			console.log('proceed reached')
+			state.currentQuestion++;
+			renderQuestion();
 		} else {
-			state.scores.wrong.push(value);
-			correctOrNot = 'Incorrect';
+			console.log('proceed else')
+			renderFinalPg();
 		}
-		return correctOrNot;
 	}
+
 
 	// ##############  Render Functions  ###################################
 	// #####################################################################
@@ -191,48 +182,88 @@
 		`;
 		//console.log(template);
 		$(".quiz-container").html(template);
+
+
+
+		$('#js-quizzapp-start-form').submit( function(ev) {
+			ev.preventDefault();
+			console.log('start pressed');
+			state.currentPage = 'question';
+			proceedQuiz();
+		});
 	}
 
 	function renderFinalPg(state) {
 		template = '<h2>This will be the final page</h2>';
-		// Show results; ask if they want to try the same thing again...
+		$(".quiz-container").html(template);
 	}
 
-	function renderQuestion(state) {
-		renderQuestionNo(state);  // increment the state.currentQuestion attribute
-		if ((state.currentQuestion) && (state.currentQuestion !== 'final')) {
-			var questionNo = state.currentQuestion;
-			var questionText = state.questions[questionNo-1].question;
-			var correctOrNot = renderRightWrong(state, questionNo);
-			var numberRight = state.scores.right.length;
+	function renderQuestion() {
+		// Template definition
+		var template = '';
+		template += '<h2 class="question-header">@question-number</h2>';
+		template += '<h3 class="question-text">@question</h2>';
+		template += '<form class="answer-list" value="text">';
+		template += '@answer-options';
+		template += '</form>';
+		template += '<div class="answer-feedback"><div class="proceed"><form id="proceed">';
+	    template += '<input type="hidden" name="proceed"><button class="proceed_button" type="submit">Proceed</button></form></div>';
+	    // template += '<div class="right-wrong">@question-correct-or-not</div>';
+	    // template += '<div class="score">@total-right-answers of @total-questions are correct.</div>';
+	    template += '</div>  <!-- End of answer feedback -->';
 
-			var template = '';
-			template += '<h2 class="question-header">'+questionNo+'</h2>';
-			template += '<h3 class="question-text">'+questionText+'</h2>';
-			template += '<form class="answer-list">';
-			template += '<select>';
+	    // Data definition
+		// var questionNo = state.currentQuestion;
+		// var questionText = state.questions[questionNo-1].question;
+		// var correctOrNot = renderRightWrong(state, questionNo);
+		// var numberRight = state.scores.right.length;
 
-			for (var i=0; i < 5; i++){
+		// Response processing (template + data)
+		var results = template
+			.replace('@question-number', state.currentQuestion)
+			.replace('@question', state.questions[state.currentQuestion-1].question)
+			.replace('@answer-options', renderQuestionAnswerOptions(state.questions[state.currentQuestion-1].options));
 
-				optionText = state.questions[questionNo-1].options[i].text;
-				template += '<option class="answer-list-item" value="text">'+optionText+'</option>';
-			}
 
-			template += '</select></form>';
-			template += '<div class="answer-feedback"><div class="proceed"><form id="proceed">';
-		    template += '<input type="hidden" name="proceed"><button class="proceed_button" type="submit">Proceed</button></form></div>';
-		    template += '<div class="right-wrong">'+correctOrNot+'</div>';
-		    template += '<div class="score">'+numberRight+' of 10 correct.</div></div>  <!-- End of answer feedback -->';
-		    
-			$('.quiz-container').html(template);
+		// var template = '';
+		// template += '<h2 class="question-header">'+questionNo+'</h2>';
+		// template += '<h3 class="question-text">'+questionText+'</h2>';
+		// template += '<form class="answer-list">';
+		// template += '<select>';
 
-		} else {
-			renderFinalPg();
-		}  // end of else and of if quiz is over
-	         
+		// for (var i=0; i < 5; i++){
+
+		// 	optionText = state.questions[questionNo-1].options[i].text;
+		// 	template += '<option class="answer-list-item" value="text">'+optionText+'</option>';
+		// }
+
+		// template += '</select></form>';
+		// template += '<div class="answer-feedback"><div class="proceed"><form id="proceed">';
+	 //    template += '<input type="hidden" name="proceed"><button class="proceed_button" type="submit">Proceed</button></form></div>';
+	 //    template += '<div class="right-wrong">'+correctOrNot+'</div>';
+	 //    template += '<div class="score">'+numberRight+' of 10 correct.</div></div>  <!-- End of answer feedback -->';
+	    
+		$('.quiz-container').html(results);
+
+
+		$('button.proceed_button').click( function(ev) {
+			ev.preventDefault();
+			proceedQuiz();
+		});
 	}  // end of renderQuestion()
 
+	function renderQuestionAnswerOptions (optionsList) {
+		var answerText = '';
+		var innerTemplate = '';
 
+		for (var n=0; n<optionsList.length; n++){
+			answerText = optionsList[n].text
+			innerTemplate += '<option class="answer-list-item" value="text">'+answerText+'</option>';
+		}
+
+		return '<select>'+innerTemplate+'</select>';
+
+	}
 
 
 
@@ -242,22 +273,6 @@
 	// Do this when we load the page
 
 	renderIntro();
-
-	$('#js-quizzapp-start-form').submit( function(ev) {
-		ev.preventDefault();	
-		console.log('first function')
-		renderQuestion(state);
-	});
-
-	$('button.proceed_button').click( function(ev) {
-		ev.preventDefault();
-		console.log('clicked');
-		renderQuestion(state);
-	});
-
-
-
-
 })()
 
 
