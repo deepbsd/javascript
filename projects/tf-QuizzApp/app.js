@@ -219,7 +219,7 @@
 			}
 
 			template += '</select></form>';
-			template += '<div class="answer-feedback"><div class="proceed"><form class="proceed">';
+			template += '<div class="answer-feedback"><div class="proceed"><form id="proceed">';
 		    template += '<input type="hidden" name="proceed"><button class="proceed_button" type="submit">Proceed</button></form></div>';
 		    template += '<div class="right-wrong">'+correctOrNot+'</div>';
 		    template += '<div class="score">'+numberRight+' of 10 correct.</div></div>  <!-- End of answer feedback -->';
@@ -240,19 +240,18 @@
 	// ######################################################################
 
 	// Do this when we load the page
-	var gameOn = true;
+
 	renderIntro();
 
 	$('#js-quizzapp-start-form').submit( function(ev) {
 		ev.preventDefault();	
+		console.log('first function')
 		renderQuestion(state);
-	
 	});
 
-
-	$('.proceed_button').click( function(ev) {
-		console.log('clicked');
+	$('button.proceed_button').click( function(ev) {
 		ev.preventDefault();
+		console.log('clicked');
 		renderQuestion(state);
 	});
 
