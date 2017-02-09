@@ -2,157 +2,232 @@
 
 // ###########  Single-State Data Object ###############
 // #####################################################
-var questions = [
-	{ 
-	  id: 1,
-	  question: "What is the first rule of the four (Jeff Cooper) firearms safety rules?",
-	  option_a: "Never point a gun at something you don't want to shoot.",
-	  option_b: "Always run away from guns.",
-	  option_c: '"All guns are always loaded."',
-	  option_d: "Keep your finger off the trigger until you're ready to destroy.",
-	  option_e: "Call your lawyer before you handle any gun.",
-	  answer: "c",
-	  correctly_answered: false
+var state = {
+	currentQuestion:  undefined, //'start_page','question 1 etc','final'
+
+	scores: {
+		right: [],
+		wrong: []
 	},
 
-	{ 
-		id: 2,
-		question: "What is the second rule of the four (Jeff Cooper) firearms safety rules?",
-		option_a: "Be certain of your target.",
-		option_b: "Unload all guns first thing.",
-		option_c: "Keep your finger off the trigger until your sights are on target and you're ready to fire.",
-		option_d: "Follow the orders of the safety officer.",
-		option_e: "Never let the muzzle cover anything you don't intend to destroy.",
-		answer: "e",
-		correctly_answered: false
-	},
+	questions: [
+		{ 
+		  id: 1,
+		  question: "What is the first rule of the four (Jeff Cooper) firearms safety rules?",
+		  options: [
+			  {text: "A.  Never point a gun at something you don't want to shoot."},
+			  {text: "B.  Always run away from guns."},
+			  {text: 'C.  "All guns are always loaded."', correct: true},
+			  {text: "D.  Keep your finger off the trigger until you're ready to destroy."},
+			  {text: "E.  Call your lawyer before you handle any gun."},
+		  ],
+		  correctly_answered: false
+		},
 
-	{ 
-		id: 3,
-		question: "What is the third fule of the four (Jeff Cooper) firearms safety rules?",
-		option_a: "Keep your finger off the trigger until your sights are on target and you're ready to fire.",
-		option_b: "Be certain of your target and what's behind it and in front of it.",
-		option_c: "Be aware of local range rules and regulations.",
-		option_d: "Follow relevant laws, both federal and local.",
-		option_e: "Never let the muzzle cover anything you don't intend to destroy.",
-		answer: "a",
-		correctly_answered: false
-	},
+		{ 
+			id: 2,
+			question: "What is the second rule of the four (Jeff Cooper) firearms safety rules?",
+			options: [
+				{text: "A.  Be certain of your target."},
+				{text: "B.  Unload all guns first thing."},
+				{text: "C.  Keep your finger off the trigger until your sights are on target and you're ready to fire."},
+				{text: "D.  Follow the orders of the safety officer."},
+				{text: "E.  Never let the muzzle cover anything you don't intend to destroy.", correct: true},
+			],
+			correctly_answered: false
+		},
 
-	{ 
-		id: 4,
-		question: "What is the fourth rule of the four (Jeff Cooper) firearms safety rules?",
-		option_a: "Know where all pets and children are before you fire.",
-		option_b: "Ensure guns are loaded before firing.",
-		option_c: "Keep your finger off the trigger until your sights are on target and you're ready to fire.",
-		option_d: "Be certain of your target and what's behind it and in front of it.",
-		option_e: "Be certain what will stop your bullet before you fire it.",
-		answer: "d",
-		correctly_answered: false
-	},
+		{ 
+			id: 3,
+			question: "What is the third fule of the four (Jeff Cooper) firearms safety rules?",
+			options: [
+				{text: "A.  Keep your finger off the trigger until your sights are on target and you're ready to fire.", correct: true},
+				{text: "B.  Be certain of your target and what's behind it and in front of it."},
+				{text: "C.  Be aware of local range rules and regulations."},
+				{text: "D.  Follow relevant laws, both federal and local."},
+				{text: "E.  Never let the muzzle cover anything you don't intend to destroy."},
+			],
+			correctly_answered: false
+		},
 
-	{ 
-		id: 5,
-		question: "When holstering your handgun, where should your trigger finger be?",
-		option_a: "Inside the trigger guard.",
-		option_b: "Indexed and outside the trigger guard.",
-		option_c: "On the front of the trigger guard.",
-		option_d: "Curled inward toward the palm.",
-		option_e: "Inside your ear canal.",
-		answer: "b",
-		correctly_answered: false
-	},
+		{ 
+			id: 4,
+			question: "What is the fourth rule of the four (Jeff Cooper) firearms safety rules?",
+			options: [
+				{text: "A.  Know where all pets and children are before you fire."},
+				{text: "B.  Ensure guns are loaded before firing."},
+				{text: "C.  Keep your finger off the trigger until your sights are on target and you're ready to fire."},
+				{text: "D.  Be certain of your target and what's behind it and in front of it.", correct: true},
+				{text: "E.  Be certain what will stop your bullet before you fire it."},
+			],
+			correctly_answered: false
+		},
 
-	{ 
-		id: 6,
-		question: "When reholstering your handgun, how fast should you go?",
-		option_a: "Go as fast as you can.",
-		option_b: "Best to keep your gun out; wolves travel in packs!",
-		option_c: "There's no need to reholster quickly, take your time",
-		option_d: "You get bonus points for reholstering quicker than everyone else.",
-		option_e: "Just lay the gun down on the ground.",
-		answer: "c",
-		correctly_answered: false
-	},
+		{ 
+			id: 5,
+			question: "When holstering your handgun, where should your trigger finger be?",
+			options: [
+				{text: "A.  Inside the trigger guard."},
+				{text: "B.  Indexed and outside the trigger guard.", correct: true},
+				{text: "C.  On the front of the trigger guard."},
+				{text: "D.  Curled inward toward the palm."},
+				{text: "E.  Inside your ear canal."},
+			],
+			correctly_answered: false
+		},
 
-	{ 
-		id: 7,
-		question: "Someone hands you a firearm in a gun store.  What should you do first?",
-		option_a: "Handling the gun safely, ensure the gun is unloaded and clear.",
-		option_b: "Lock the slide to the rear or open the bolt.",
-		option_c: "Drop the magazine, if there is one.",
-		option_d: "Open the cylinder and press the extractor rod.",
-		option_e: 'Ask that person, "Is it loaded?"',
-		answer: "a",
-		correctly_answered: false
-	},
+		{ 
+			id: 6,
+			question: "When reholstering your handgun, how fast should you go?",
+			options: [
+				{text: "A.  Go as fast as you can."},
+				{text: "B.  Best to keep your gun out; wolves travel in packs!"},
+				{text: "C.  There's no need to reholster quickly, take your time", correct: true},
+				{text: "D.  You get bonus points for reholstering quicker than everyone else."},
+				{text: "E.  Just lay the gun down on the ground."},
+				],
+			correctly_answered: false
+		},
 
-	{ 
-		id: 8,
-		question: "You're clearing a semi-auto handgun.  What are the first two steps?",
-		option_a: "Rack the slide once and drop the magazine.",
-		option_b: "Drop the magazine and lock the slide to the rear.",
-		option_c: "Tap the magazine and lock the slide to the rear.",
-		option_d: "Drop the magazine, rack the slide, and re-insert the magazine.",
-		option_e: "Remove the magazine and look down the muzzle to see if there's a bullet in the chamber.",
-		answer: "b",
-		correctly_answered: false
-	},
+		{ 
+			id: 7,
+			question: "Someone hands you a firearm in a gun store.  What should you do first?",
+			options: [
+				{text: "A.  Handling the gun safely, ensure the gun is unloaded and clear.", correct: true},
+				{text: "B.  Lock the slide to the rear or open the bolt."},
+				{text: "C.  Drop the magazine, if there is one."},
+				{text: "D.  Open the cylinder and press the extractor rod."},
+				{text: 'E.  Ask that person, "Is it loaded?"'},
+			],
+			correctly_answered: false
+		},
 
-	{ 
-		id: 9,
-		question: "You have a loaded double action revolver with the hammer cocked.  How can you make the gun safe?",
-		option_a: "Put your off-side thumb infront of the hammer and press the trigger, then unload as usual.",
-		option_b: "Put your strong-side thumb on the hammer and press the trigger to lower it gently onto the loaded chamber, then unload as usual.",
-		option_c: "Just leave the hammber cocked back and unload as usual.",
-		option_d: "Go ahead and press the trigger, the transfer bar will prevent ignition.  Then unload as usual.",
-		option_e: "Never unload a double action revolver; it's already safe.",
-		answer: "a",
-		correctly_answered: false
-	},
+		{ 
+			id: 8,
+			question: "You're clearing a semi-auto handgun.  What are the first two steps?",
+			options: [
+				{text: "A.  Rack the slide once and drop the magazine."},
+				{text: "B.  Drop the magazine and lock the slide to the rear.", correct: true},
+				{text: "C.  Tap the magazine and lock the slide to the rear."},
+				{text: "D.  Drop the magazine, rack the slide, and re-insert the magazine."},
+				{text: "E.  Remove the magazine and look down the muzzle to see if there's a bullet in the chamber."},
+			],
+			correctly_answered: false
+		},
 
-	{ 
-		id: 10,
-		question: "Your 12-year-old son's friend shows him his father's gun.  What should your son do?",
-		option_a: "Call the police.",
-		option_b: "Call you at work.",
-		option_c: "Take the gun and demonstrate correct gun handling with the gun.",
-		option_d: "Explain the Jeff Cooper safety rules to his friend and show him this online quiz.",
-		option_e: "Politely ask his friend to not handle any guns without an adult present and leave immediately if the friend doesn't comply.",
-		answer: "e",
-		correctly_answered: false
-	}
-]
+		{ 
+			id: 9,
+			question: "You have a loaded double action revolver with the hammer cocked.  How can you make the gun safe?",
+			options: [
+				{text: "A.  Put your off-side thumb infront of the hammer and press the trigger, then unload as usual.", correct: true},
+				{text: "B.  Put your strong-side thumb on the hammer and press the trigger to lower it gently onto the loaded chamber, then unload as usual."},
+				{text: "C.  Just leave the hammber cocked back and unload as usual."},
+				{text: "D.  Go ahead and press the trigger, the transfer bar will prevent ignition.  Then unload as usual."},
+				{text: "E.  Never unload a double action revolver; it's already safe."},
+			],
+			correctly_answered: false
+		},
+
+		{ 
+			id: 10,
+			question: "Your 12-year-old son's friend shows him his father's gun.  What should your son do?",
+			options: [
+				{text: "A.  Call the police."},
+				{text: "B.  Call you at work."},
+				{text: "C.  Take the gun and demonstrate correct gun handling with the gun."},
+				{text: "D.  Explain the Jeff Cooper safety rules to his friend and show him this online quiz."},
+				{text: "E.  Politely ask his friend to not handle any guns without an adult present and leave immediately if the friend doesn't comply.", correct: true},
+			],
+			correctly_answered: false
+		}
+	]	// end of questions list
+}  // end of state object
+
 
 
 // #############  State Modification Functions #######################
 // ###################################################################
-var renderQuestion = function(question) {
-	var template = '';
-	template += '<h2 class="question-header">@questionNo</h2>';
-	template += '<h3 class="question-text">@questionText</h2>';
-	template += '<form class="answer-list">';
-	template += '<select>';
-	template += '<option class="answer-list-item" value="a">@option_a</option>';
-	template += '<option class="answer-list-item" value="b">@option_b</option>';
-	template += '<option class="answer-list-item" value="c">@option_c</option>';
-	template += '<option class="answer-list-item" value="d">@option_d</option>';
-	template += '<option class="answer-list-item" value="e">@option_e</option>';
-	template += '</select></form>';
-	template += '<div class="answer-feedback"><div class="proceed"><form class="proceed">';
-    template += '<input type="hidden" name="proceed"><button type="submit">Proceed</button></form></div>';
-    template += '<div class="right-wrong">@correctOrNot</div>';
-    template += '<div class="score">@numberRight of 10 correct.</div></div>  <!-- End of answer feedback -->';
-        
-         
-      
 
+function renderQuestionNo(state){
+	if (state.currentQuestion === undefined) {
+		state.currentQuestion = 1;
+	} else if ((state.currentQuestion >= 1) && (state.currentQuestion <= 10)) {
+		state.currentQuestion += 1;
+	} else {
+		state.currentQuestion = 'final';
+	}  // end of if statement
+	return state.currentQuestion;
+}  // end of renderQuestionNo()
+
+
+function renderRightWrong(state, value) {
+	var correctOrNot = '';
+	if (state.questions[value].correct) {
+		state.scores.right.push(value);
+		correctOrNot = 'Correct';
+	} else {
+		state.scores.wrong.push(value);
+		correctOrNot = 'Incorrect';
+	}
+	return correctOrNot;
 }
-
-
 
 // ##############  Render Functions  ###################################
 // #####################################################################
+
+
+function renderIntro() {
+	var template = `<h1>Firearms Safety Quizz App</h1>
+	<div class="safety-intro">
+    <p class="intro-text">Firearms safety is a hot topic these days.  And if you live with firearms, it's vital to be safe!  Test your knowledge with these 10 questions and see if you're safe or whether you've been corrupted by watching too many movies and TV shows!</p>
+    <form id="js-quizzapp-start-form">
+      <label for="quizapp-start">Start Your Safety Quiz?</label>
+      <input type="hidden" name="start-quiz" id="start-quiz">
+      <button type="submit">Start Quiz</button>
+    </form>
+    </div> <!-- end of safety-intro  -->
+	`;
+	//console.log(template);
+	$(".quiz-container").html(template);
+}
+
+function renderFinalPg(state) {
+	template = '<h2>This will be the final page</h2>';
+	// Show results; ask if they want to try the same thing again...
+}
+
+function renderQuestion(state) {
+	renderQuestionNo(state);  // increment the state.currentQuestion attribute
+	if ((state.currentQuestion) && (state.currentQuestion !== 'final')) {
+		var questionNo = state.currentQuestion;
+		var questionText = state.questions[questionNo-1].question;
+		var correctOrNot = renderRightWrong(state, questionNo);
+		var numberRight = state.scores.right.length;
+
+		var template = '';
+		template += '<h2 class="question-header">'+questionNo+'</h2>';
+		template += '<h3 class="question-text">'+questionText+'</h2>';
+		template += '<form class="answer-list">';
+		template += '<select>';
+
+		for (var option in state.questions.options){
+			optionText = option.text;
+			template += '<option class="answer-list-item" value="a">'+optionText+'</option>';
+		}
+
+		template += '</select></form>';
+		template += '<div class="answer-feedback"><div class="proceed"><form class="proceed">';
+	    template += '<input type="hidden" name="proceed"><button class="proceed_button" type="submit">Proceed</button></form></div>';
+	    template += '<div class="right-wrong">'+correctOrNot+'</div>';
+	    template += '<div class="score">'+numberRight+' of 10 correct.</div></div>  <!-- End of answer feedback -->';
+	    
+		$('.quiz-container').html(template);
+
+	} else {
+		renderFinalPg();
+	}  // end of else and of if quiz is over
+         
+}  // end of renderQuestion()
 
 
 
@@ -161,7 +236,11 @@ var renderQuestion = function(question) {
 // ##############  Event Listeners  #####################################
 // ######################################################################
 
+// Do this when we load the page
+renderIntro();
 
+$('#js-quizzapp-start-form').submit(renderQuestion(state));
+$('.proceed_button').click(renderQuestion());
 
 
 
