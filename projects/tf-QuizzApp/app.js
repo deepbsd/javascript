@@ -238,7 +238,7 @@
 			.replace('@question-correct-or-not', function() { 
 				if (state.currentQuestion === 1) {
 					return 'No score yet.';
-				} else if (state.currentQuestion-1 in state.scores.right){
+				} else if (state.scores.right.indexOf(state.currentQuestion-1) > -1){
 					console.log(state.currentQuestion);
 					return 'Correct!';
 				 } else {
