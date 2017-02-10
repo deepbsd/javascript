@@ -155,7 +155,7 @@
 
 	function proceedQuiz() {
 
-		if (state.currentPage === 'question' && state.currentQuestion < state.questions.length - 1) {
+		if (state.currentPage === 'question' && state.currentQuestion < state.questions.length) {
 			console.log('proceed reached, currentPage: ', state.currentPage);
 			state.currentQuestion++;
 			renderQuestion();
