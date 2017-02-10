@@ -209,7 +209,7 @@
 		var template = '';
 		template += '<h2 class="question-header">@question-number</h2>';
 		template += '<h3 class="question-text">@question</h2>';
-		template += '<form class="answer-list" value="text">';
+		template += '<form class="answer-list-form" value="text">';
 		template += '@answer-options';
 		template += '</form>';
 		template += '<div class="answer-feedback"><div class="proceed"><form id="proceed">';
@@ -230,9 +230,10 @@
 
 		$('button.proceed_button').click( function(ev) {
 			ev.preventDefault();
-			proceedQuiz();			
-			var chosen = $('#answer-list option:selected').val();
+			proceedQuiz();
+			var chosen = $('#answer-list option:selected').text();
 			scoreQuestion(chosen);
+
 
 		});
 	}  // end of renderQuestion()
