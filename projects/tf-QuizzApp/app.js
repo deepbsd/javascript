@@ -206,12 +206,12 @@
 		});
 	}
 
-	function renderFinalPg(state) {
-		var numberRight = state.scores.right.length;
-		console.log('Number right: '+numberRight)
+	function renderFinalPg() {
+		var template = '';
 		template = '<h2>Your Results:</h2>';
 		template += '<h4 class="results">@correct out of 10 Correct!</h4>';
-		//template.replace('@correct', state.scores.right.length);
+		template = template.replace('@correct', state.scores.right.length);
+		console.log(state.scores.right.length)
 		$(".quiz-container").html(template);
 	}
 
@@ -239,14 +239,13 @@
 		$('.quiz-container').html(results);
 
 
+		// Handle Proceed button being pressed
 		$('button.proceed_button').click( function(ev) {
 			ev.preventDefault();
-
 			var questionID = state.currentQuestion;
 			var chosenAnswer = $('#answer-list option:selected').index();
 			scoreQuestion(questionID, chosenAnswer);
 			proceedQuiz();
-
 		});
 	}  // end of renderQuestion()
 
