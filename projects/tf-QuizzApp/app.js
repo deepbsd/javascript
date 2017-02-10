@@ -170,8 +170,15 @@
 	// ##############  Render Functions  ###################################
 	// #####################################################################
 
-	function scoreQuestion(question) {    // this will be one of the questions objects
-		console.log(question);
+	function scoreQuestion(questionNumber, selectedIndex) {    
+		if (state.questions[questionNumber-1].options[selectedIndex].correct) {
+			console.log("Correct!");
+			state.scores.right.push(questionNumber);
+		} else {
+			state.scores.wrong.push(questionNumber);
+			console.log("Nope! Sorry!");
+		}
+		//console.log('right: '+state.scores.right+'  wrong: '+state.scores.wrong);
 	}
 
 
@@ -200,7 +207,11 @@
 	}
 
 	function renderFinalPg(state) {
-		template = '<h2>This will be the final page</h2>';
+		var numberRight = state.scores.right.length;
+		console.log('Number right: '+numberRight)
+		template = '<h2>Your Results:</h2>';
+		template += '<h4 class="results">@correct out of 10 Correct!</h4>';
+		//template.replace('@correct', state.scores.right.length);
 		$(".quiz-container").html(template);
 	}
 
@@ -231,8 +242,9 @@
 		$('button.proceed_button').click( function(ev) {
 			ev.preventDefault();
 
-			var chosen = $('#answer-list option:selected').text();
-			scoreQuestion(chosen);
+			var questionID = state.currentQuestion;
+			var chosenAnswer = $('#answer-list option:selected').index();
+			scoreQuestion(questionID, chosenAnswer);
 			proceedQuiz();
 
 		});
