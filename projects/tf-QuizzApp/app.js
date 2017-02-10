@@ -225,8 +225,8 @@
 		template += '</form>';
 		template += '<div class="answer-feedback"><div class="proceed"><form id="proceed">';
 	    template += '<input type="hidden" name="proceed"><button class="proceed_button" type="submit">Proceed</button></form></div>';
-	    // template += '<div class="right-wrong">@question-correct-or-not</div>';
-	    // template += '<div class="score">@total-right-answers of @total-questions are correct.</div>';
+	    template += '<div class="right-wrong">@question-correct-or-not</div>';
+	    template += '<div class="score">@total-right-answers of @total-questions are correct.</div>';
 	    template += '</div>  <!-- End of answer feedback -->';
 
 
@@ -234,7 +234,20 @@
 		var results = template
 			.replace('@question-number', state.currentQuestion)
 			.replace('@question', state.questions[state.currentQuestion-1].question)
-			.replace('@answer-options', renderQuestionAnswerOptions(state.questions[state.currentQuestion-1].options));
+			.replace('@answer-options', renderQuestionAnswerOptions(state.questions[state.currentQuestion-1].options))
+			.replace('@question-correct-or-not', function() { 
+				if (state.currentQuestion === 1) {
+					return 'No score yet.';
+				} else if (state.currentQuestion-1 in state.scores.right){
+					console.log(state.currentQuestion);
+					return 'Correct!';
+				 } else {
+				 	console.log(state.currentQuestion);
+				 	return 'Nope! Sorry!';
+				 	//return 'Wait a minute!'
+				 }})
+			.replace('@total-right-answers', state.scores.right.length)
+			.replace('@total-questions', state.questions.length);
   
 		$('.quiz-container').html(results);
 
