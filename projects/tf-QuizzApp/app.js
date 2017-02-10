@@ -230,10 +230,10 @@
 
 		$('button.proceed_button').click( function(ev) {
 			ev.preventDefault();
-			proceedQuiz();
+
 			var chosen = $('#answer-list option:selected').text();
 			scoreQuestion(chosen);
-
+			proceedQuiz();
 
 		});
 	}  // end of renderQuestion()
