@@ -219,10 +219,18 @@
 		var template = '';
 		template = '<h2>Your Results:</h2>';
 		template += '<h4 class="results">@correct out of 10 Correct!</h4>';
+		template += '<form id="js-quizzapp-restart"><label for="quizapp-start"></label>'; 
+		template += '<input type="hidden" name="restart-quiz" id="restart-quiz">';
+		template += '<button type="submit">Restart Quiz</button></form>';
 		template = template.replace('@correct', state.scores.right.length);
+
 		console.log(state.scores.right.length)
 		$(".quiz-container").html(template);
-	}
+
+		$('#restart-quiz').click( function() {
+			window.top.reload();
+		})
+	}  // end of renderFinalPg()
 
 	function renderQuestion() {
 		// Template definition
