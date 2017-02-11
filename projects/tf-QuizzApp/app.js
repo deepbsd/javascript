@@ -9,6 +9,8 @@
     4. Remove the correctly_answered attribute from the questions list
     5. Consider adding capability to load other quizzes dynamically as objects as a user choice
        (such as a Baby Boomer TV Trivia Quiz, for example.)
+    6. Reimplement backticks on #195 because IE doesn't recognize them
+    7. I can restart the game by going state = initialState() and using a factory function for the state variable
 */
 
 
