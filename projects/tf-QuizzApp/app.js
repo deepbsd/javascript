@@ -4,7 +4,7 @@
 	These are some notes of stuff to do:
 	===================================
 	1. Create an isCurrentQuestionRight() function
-	2. Modify renderFinalPg() so it offers to try the quiz again.
+	done  2. Modify renderFinalPg() so it offers to try the quiz again.
 	3. Question 9 has a very long answer that goofs up the form.  Try to shorten it.
 */
 
@@ -192,7 +192,7 @@
 
 
 	function renderIntro() {
-		var template = `<h1>Firearms Safety Quizz App</h1>
+		var template = `<h1>Firearms Safety Quiz App</h1>
 		<div class="safety-intro">
 	    <p class="intro-text">Firearms safety is a hot topic these days.  And if you live with firearms, it's vital to be safe!  Test your knowledge with these 10 questions and see if you're safe or whether you've been corrupted by watching too many movies and TV shows!</p>
 	    <form id="js-quizzapp-start-form">
@@ -224,7 +224,7 @@
 		template += '<button type="submit">Restart Quiz</button></form>';
 		template = template.replace('@correct', state.scores.right.length);
 
-		console.log(state.scores.right.length)
+		console.log(state.scores.right.length+' questions answered correctly...')
 		$(".quiz-container").html(template);
 
 		$('#restart-quiz').click( function() {
@@ -256,16 +256,16 @@
 				if (state.currentQuestion === 1) {
 					return 'No score yet.';
 				} else if (state.scores.right.indexOf(state.currentQuestion-1) > -1){
-					console.log(state.currentQuestion);
+					console.log('currentQuestion: '+state.currentQuestion);
 					return 'Correct!';
 				 } else {
-				 	console.log(state.currentQuestion);
+				 	console.log('currentQuestion: '+state.currentQuestion);
 				 	return 'Nope! Sorry!';
-				 	//return 'Wait a minute!'
 				 }})
 			.replace('@total-right-answers', state.scores.right.length)
 			.replace('@total-questions', state.questions.length);
-  
+  		
+  		// Update the page
 		$('.quiz-container').html(results);
 
 
@@ -279,6 +279,7 @@
 		});
 	}  // end of renderQuestion()
 
+	// Seperate function just for rendering the options list
 	function renderQuestionAnswerOptions (optionsList) {
 		var answerText = '';
 		var innerTemplate = '';
