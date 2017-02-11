@@ -1,5 +1,14 @@
 "use strict;"
 
+/*
+	These are some notes of stuff to do:
+	===================================
+	1. Create an isCurrentQuestionRight() function
+	2. Modify renderFinalPg() so it offers to try the quiz again.
+	3. Question 9 has a very long answer that goofs up the form.  Try to shorten it.
+*/
+
+
 ;(function() {
 
 	// ###########  Single-State Data Object ###############
