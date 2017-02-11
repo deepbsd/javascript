@@ -6,6 +6,9 @@
 	1. Create an isCurrentQuestionRight() function
 	done  2. Modify renderFinalPg() so it offers to try the quiz again.
 	3. Question 9 has a very long answer that goofs up the form.  Try to shorten it.
+    4. Remove the correctly_answered attribute from the questions list
+    5. Consider adding capability to load other quizzes dynamically as objects as a user choice
+       (such as a Baby Boomer TV Trivia Quiz, for example.)
 */
 
 
