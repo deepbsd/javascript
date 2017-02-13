@@ -1,6 +1,6 @@
 "use strict;"
 
-/*
+/*                          ***** Boomer TV Quizz App   *************
 	These are some notes of stuff to do:
 	===================================
 	1. Create an isCurrentQuestionRight() function
@@ -25,137 +25,196 @@
 			right: [],
 			wrong: []
 		},
-
 		questions: [
 			{ 
 			  id: 1,
-			  question: "What is the first rule of the four (Jeff Cooper) firearms safety rules?",
+			  question: "Who was Arnold Ziffle?",
 			  options: [
-				  {text: "A.  Never point a gun at something you don't want to shoot."},
-				  {text: "B.  Always run away from guns."},
-				  {text: 'C.  "All guns are always loaded."', correct: true},
-				  {text: "D.  Keep your finger off the trigger until you're ready to destroy."},
-				  {text: "E.  Call your lawyer before you handle any gun."},
+				  {text: "A.  Perry Mason's first client."},
+				  {text: "B.  A crewman on McHale's Navy."},
+				  {text: 'C.  A pet pig on Green Acres.', correct: true},
+				  {text: "D.  The Sherriff on The Virginian."},
+				  {text: "E.  Jethro's 2nd Cousin on The Bervely Hillbillies."},
 			   ],
 			  correctly_answered: false
 			},
 
 			{ 
 				id: 2,
-				question: "What is the second rule of the four (Jeff Cooper) firearms safety rules?",
+				question: "How did Dr. Loveless's family lose their land grant in California?",
 				options: [
-					{text: "A.  Be certain of your target."},
-					{text: "B.  Unload all guns first thing."},
-					{text: "C.  Keep your finger off the trigger until your sights are on target and you're ready to fire."},
-					{text: "D.  Follow the orders of the safety officer."},
-					{text: "E.  Never let the muzzle cover anything you don't intend to destroy.", correct: true},
+					{text: "A.  When Dr. Loveless was declared insane."},
+					{text: "B.  When Jim and Arte arrested him."},
+					{text: "C.  When The Wild Wild West got cancelled."},
+					{text: "D.  When Dr. Loveless tried to blow up California."},
+					{text: "E.  When California became a state.", correct: true},
 				],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 3,
-				question: "What is the third fule of the four (Jeff Cooper) firearms safety rules?",
+				question: "How many seasons did Bonanza have?",
 				options: [
-					{text: "A.  Keep your finger off the trigger until your sights are on target and you're ready to fire.", correct: true},
-					{text: "B.  Be certain of your target and what's behind it and in front of it."},
-					{text: "C.  Be aware of local range rules and regulations."},
-					{text: "D.  Follow relevant laws, both federal and local."},
-					{text: "E.  Never let the muzzle cover anything you don't intend to destroy."},
+					{text: "A.  14.", correct: true},
+					{text: "B.  11."},
+					{text: "C.  18."},
+					{text: "D.  6."},
+					{text: "E.  10."},
 				],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 4,
-				question: "What is the fourth rule of the four (Jeff Cooper) firearms safety rules?",
+				question: "On Honey West, what kind of pet was Bruce?",
 				options: [
-					{text: "A.  Know where all pets and children are before you fire."},
-					{text: "B.  Ensure guns are loaded before firing."},
-					{text: "C.  Keep your finger off the trigger until your sights are on target and you're ready to fire."},
-					{text: "D.  Be certain of your target and what's behind it and in front of it.", correct: true},
-					{text: "E.  Be certain what will stop your bullet before you fire it."},
+					{text: "A.  Parrot."},
+					{text: "B.  Chimpanzee."},
+					{text: "C.  Great Dane."},
+					{text: "D.  Ocelot.", correct: true},
+					{text: "E.  Cobra."},
 				],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 5,
-				question: "When holstering your handgun, where should your trigger finger be?",
+				question: "What actor played 'The Beaver'?",
 				options: [
-					{text: "A.  Inside the trigger guard."},
-					{text: "B.  Indexed and outside the trigger guard.", correct: true},
-					{text: "C.  On the front of the trigger guard."},
-					{text: "D.  Curled inward toward the palm."},
-					{text: "E.  Inside your ear canal."},
+					{text: "A.  Tony Dow."},
+					{text: "B.  Jerry Mathers.", correct: true},
+					{text: "C.  Hugh Beaumont."},
+					{text: "D.  Ken Osmond."},
+					{text: "E.  Larry Mondello."},
 				],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 6,
-				question: "When reholstering your handgun, how fast should you go?",
+				question: "What town was Gomer Pyle from?",
 				options: [
-					{text: "A.  Go as fast as you can."},
-					{text: "B.  Best to keep your gun out; wolves travel in packs!"},
-					{text: "C.  There's no need to reholster quickly, take your time", correct: true},
-					{text: "D.  You get bonus points for reholstering quicker than everyone else."},
-					{text: "E.  Just lay the gun down on the ground."},
+					{text: "A.  Macon, Georgia."},
+					{text: "B.  Limestone, Tennessee."},
+					{text: "C.  Mayberry, North Carolina.", correct: true},
+					{text: "D.  Bluebell, Alabama."},
+					{text: "E.  Mount Airy, North Carolina."},
 					],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 7,
-				question: "Someone hands you a firearm in a gun store.  What should you do first?",
+				question: "On Route 66, what kind of car did Tod and Buz drive around the country in?",
 				options: [
-					{text: "A.  Handling the gun safely, ensure the gun is unloaded and clear.", correct: true},
-					{text: "B.  Lock the slide to the rear or open the bolt."},
-					{text: "C.  Drop the magazine, if there is one."},
-					{text: "D.  Open the cylinder and press the extractor rod."},
-					{text: 'E.  Ask that person, "Is it loaded?"'},
+					{text: "A.  Chevrolet Corvette.", correct: true},
+					{text: "B.  VW 'Love Bus.'"},
+					{text: "C.  They both had motorcycles."},
+					{text: "D.  Lincoln Continentle."},
+					{text: 'E.  Stutz Bearcat.'},
 				],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 8,
-				question: "You're clearing a semi-auto handgun.  What are the first two steps?",
+				question: "What was Robert Ironside's middle initial?",
 				options: [
-					{text: "A.  Rack the slide once and drop the magazine."},
-					{text: "B.  Drop the magazine and lock the slide to the rear.", correct: true},
-					{text: "C.  Tap the magazine and lock the slide to the rear."},
-					{text: "D.  Drop the magazine, rack the slide, and re-insert the magazine."},
-					{text: "E.  Remove the magazine and look down the muzzle to see if there's a bullet in the chamber."},
+					{text: "A.  D."},
+					{text: "B.  T.", correct: true},
+					{text: "C.  E."},
+					{text: "D.  C."},
+					{text: "E.  P."},
 				],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 9,
-				question: "You have a loaded double action revolver with the hammer cocked.  How can you make the gun safe?",
+				question: "What was Jonny Quest's dog's name?",
 				options: [
-					{text: "A.  Put your off-side thumb infront of the hammer and press the trigger, then unload as usual.", correct: true},
-					{text: "B.  Put your strong-side thumb on the hammer and press the trigger to lower it gently onto the loaded chamber, then unload as usual."},
-					{text: "C.  Just leave the hammber cocked back and unload as usual."},
-					{text: "D.  Go ahead and press the trigger, the transfer bar will prevent ignition.  Then unload as usual."},
-					{text: "E.  Never unload a double action revolver; it's already safe."},
+					{text: "A.  Bandit.", correct: true},
+					{text: "B.  Paddle foot."},
+					{text: "C.  Clutch."},
+					{text: "D.  Trigger."},
+					{text: "E.  Lassie."},
 				],
 				correctly_answered: false
 			},
 
 			{ 
 				id: 10,
-				question: "Your 12-year-old son's friend shows him his father's gun.  What should your son do?",
+				question: "What TV show first invented the Re-run?",
 				options: [
-					{text: "A.  Call the police."},
-					{text: "B.  Call you at work."},
-					{text: "C.  Take the gun and demonstrate correct gun handling with the gun."},
-					{text: "D.  Explain the Jeff Cooper safety rules to his friend and show him this online quiz."},
-					{text: "E.  Politely ask his friend to not handle any guns without an adult present and leave immediately if the friend doesn't comply.", correct: true},
+					{text: "A.  Alfred Hitchcock Presents."},
+					{text: "B.  You Asked For It."},
+					{text: "C.  The Fugitive."},
+					{text: "D.  Star Trek."},
+					{text: "E.  I Love Lucy.", correct: true},
 				],
 				correctly_answered: false
-			}
+			},
+			{ 
+				id: 11,
+				question: "Illya Kuryakin would say Open Channel _?",
+				options: [
+					{text: "A.  B."},
+					{text: "B.  D.", correct: true},
+					{text: "C.  O."},
+					{text: "D.  U."},
+					{text: "E.  Q."},
+				],
+				correctly_answered: false
+			},
+			{ 
+				id: 12,
+				question: "Where does Paladin live in San Francisco?",
+				options: [
+					{text: "A.  Carlton Hotel.", correct: true},
+					{text: "B.  The Fairmont."},
+					{text: "C.  His ranch."},
+					{text: "D.  He lives with family there."},
+					{text: "E.  The Montedorro Hotel."},
+				],
+				correctly_answered: false
+			},
+			{ 
+				id: 13,
+				question: "What was the name of the space ship on Lost in Space?",
+				options: [
+					{text: "A.  Alpha Centauri."},
+					{text: "B.  The Galileo."},
+					{text: "C.  Jupiter 2.", correct: true},
+					{text: "D.  The Astral Traveler."},
+					{text: "E.  Zachary's Zoo."},
+				],
+				correctly_answered: false
+			},
+									{ 
+				id: 14,
+				question: "Who was prettier? Ginger or Mary Ann?",
+				options: [
+					{text: "A.  Mary Ann.", correct: true},
+					{text: "B.  The Girl from UNCLE.", correct: true},
+					{text: "C.  Yeoman Rand.", correct: true},
+					{text: "D.  Laura Petrie.", correct: true},
+					{text: "E.  Ginger.", correct: true},
+				],
+				correctly_answered: false
+			},
+			{ 
+				id: 15,
+				question: 'What would The Chief say about the "Cone of Silence"?',
+				options: [
+					{text: "A.  Open a hailing frequency."},
+					{text: "B.  Check with Agent Larabee."},
+					{text: "C.  The Claw stole it."},
+					{text: "D.  No, Max.", correct: true},
+					{text: "E.  Your shoe is ringing."},
+				],
+				correctly_answered: false
+			}			
 		]	// end of questions list
 	}  // end of state object
 
@@ -197,11 +256,11 @@
 
 
 	function renderIntro() {
-		var template = `<h1>Firearms Safety Quiz App</h1>
+		var template = `<h1>Baby Boomer TV Quiz App</h1>
 		<div class="safety-intro">
-	    <p class="intro-text">Firearms safety is a hot topic these days.  And if you live with firearms, it's vital to be safe!  Test your knowledge with these 10 questions and see if you're safe or whether you've been corrupted by watching too many movies and TV shows!</p>
+	    <p class="intro-text">Those of us who grew up during the 1950's and 60's experienced the early days of television. In a way, these were the "golden days" of television. No matter when you were born, chances are you've grown to love at least some of these characters. Test your recollection of these fun old shows!</p>
 	    <form id="js-quizzapp-start-form">
-	      <label for="quizapp-start">Start Your Safety Quiz?</label>
+	      <label for="quizapp-start">Start Your Boomer TV Trivia Quiz?</label>
 	      <input type="hidden" name="start-quiz" id="start-quiz">
 	      <button type="submit">Start Quiz</button>
 	    </form>
