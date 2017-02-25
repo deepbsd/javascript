@@ -19,7 +19,7 @@ function getDataFromApi(searchTerm, callback) {
 
 function displayYouTubeSearchData(data) {
   var resultElement = '<h2>Results for '+data.items[0].snippet.channelTitle+'</h2>';
-  console.log('Here\'s the object: '+data);
+  console.log('Here\'s the object: '+JSON.stringify(data));
 
   if (data.items) {
     data.items.forEach(function(item) {
