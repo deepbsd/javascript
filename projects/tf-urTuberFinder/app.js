@@ -5,6 +5,8 @@ function getDataFromApi(searchTerm, callback) {
     url: YOUTUBE_BASE_URL,
     data: {
       part: 'snippet',
+      maxResults: 20,
+      order: 'videoCount',
       key: 'AIzaSyA_MlA_Pv1yElF8PY9hy_Ak6Mmr6g2xltY',
       q: searchTerm,
       r: 'json',
