@@ -1,0 +1,68 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+	font-size: 1em;
+	font-weight: lighter;
+	min-width: 860px;
+}
+
+header {
+	text-align: center;
+}
+
+h1 {
+	color: indigo;
+	padding: 20px;
+}
+
+.box {
+	border-radius: 3px;
+	float: left;
+	height: 900px;
+	padding: 20px;
+	width: 20%;
+}
+
+section h2 {
+	font-size: 1.4em;
+	padding-bottom: 15px;
+}
+
+section h4 {
+	padding-bottom: 20px;
+}
+
+.personal {
+	background-color: bisque;
+	border: 1px solid salmon;
+}
+
+.skillcrush {
+	background-color: mediumturquoise;
+	border: 1px solid navy;
+}
+
+.euler {
+	background-color: lightcoral;
+	border: 1px solid thistle;
+}
+
+.thinkful {
+	background-color: palegreen;
+	border: 1px solid orange;
+}
+
+.cf {
+	clear: both;
+}
+
+
